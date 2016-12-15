@@ -17,7 +17,6 @@ class NetworkAgent<T: RequestProtocol> {
     
     typealias NetworkSuccess = (_ parseResponse: T.ResponseType?) -> Void
     typealias NetworkFailure = (_ error: Error) -> Void
-    typealias NetworkParseSuccess = (_ parseResponse: Any) -> Void
     
     fileprivate var customRequest: T
     
@@ -26,7 +25,6 @@ class NetworkAgent<T: RequestProtocol> {
     
     fileprivate var networkSuccess: NetworkSuccess?
     fileprivate var networkFailure: NetworkFailure?
-    fileprivate var networkParseSuccess: NetworkParseSuccess?
     
     // MARK: 初始化
     init(_ request: T) {

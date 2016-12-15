@@ -149,3 +149,9 @@ self.uploadRequestAgent = AppUploadReqeust().net_agent.upload(progress: { (progr
     debugPrint("\(self): \(#function) line:\(#line) 失败回调\(error)")
 })
 ```
+
+参考学习：
+
+* [OneV's Den-面向协议编程与 Cocoa 的邂逅 (下)](https://onevcat.com/2016/12/pop-cocoa-2/)
+* [Git-APIKit](https://github.com/ishkawa/APIKit)
+* [Git-Moya](https://github.com/Moya/Moya)

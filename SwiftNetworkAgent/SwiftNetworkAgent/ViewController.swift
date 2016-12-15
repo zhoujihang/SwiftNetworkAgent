@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 
 
-let kAPIStoreKey = "your key in http://apis.baidu.com/apistore"     // 普通查询的key
+let kAPIStoreKey = "842538bada1ca2d61d697fb65dc9deb3"               // 普通查询的key
 
 let kPGYerUserKey = "your userkey in http://www.pgyer.com/"         // 上传文件用的userkey
 let kPGYerAPIKey = "your apikey in http://www.pgyer.com/"           // 上传文件用的apikey

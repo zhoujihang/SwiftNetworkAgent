@@ -1,0 +1,6 @@
+framework module Pods_SwiftNetworkAgentUITests {
+  umbrella header "Pods-SwiftNetworkAgentUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

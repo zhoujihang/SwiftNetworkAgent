@@ -13,17 +13,17 @@ extension RequestProtocol {
     var net_agent: NetworkAgent<Self> { return NetworkAgent(self) }
 }
 
+typealias NetworkSuccess<T: RequestProtocol> = (_ parseResponse: T.ResponseType?) -> Void
+typealias NetworkFailure = (_ error: Error) -> Void
+
 class NetworkAgent<T: RequestProtocol> {
-    
-    typealias NetworkSuccess = (_ parseResponse: T.ResponseType?) -> Void
-    typealias NetworkFailure = (_ error: Error) -> Void
     
     fileprivate var customRequest: T
     
     fileprivate var sessionManager: Alamofire.SessionManager
     fileprivate var alamofireRequest: Alamofire.DataRequest?
     
-    fileprivate var networkSuccess: NetworkSuccess?
+    fileprivate var networkSuccess: NetworkSuccess<T>?
     fileprivate var networkFailure: NetworkFailure?
     
     // MARK: 初始化
@@ -34,7 +34,7 @@ class NetworkAgent<T: RequestProtocol> {
     }
     
     // MARK: 发起请求方法
-    func requestParseResponse(success: @escaping NetworkSuccess, failture: @escaping NetworkFailure) -> NetworkAgent {
+    func requestParseResponse(success: @escaping NetworkSuccess<T>, failture: @escaping NetworkFailure) -> NetworkAgent {
         self.networkSuccess = success
         self.networkFailure = failture
         

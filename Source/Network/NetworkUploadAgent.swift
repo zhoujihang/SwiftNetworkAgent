@@ -13,11 +13,11 @@ extension UploadRequestProtocol {
     var net_agent: NetworkUploadAgent<Self> {return NetworkUploadAgent(self)}
 }
 
+typealias NetworkUploadProgress = (_ progress: Progress) -> Void
+typealias NetworkUploadSuccess<T: UploadRequestProtocol> = (_ parseResponse: T.ResponseType?) -> Void
+typealias NetworkUploadFailure = (_ error: Error) -> Void
+
 class NetworkUploadAgent<T: UploadRequestProtocol> {
-    
-    typealias NetworkUploadProgress = (_ progress: Progress) -> Void
-    typealias NetworkUploadSuccess = (_ parseResponse: T.ResponseType?) -> Void
-    typealias NetworkUploadFailure = (_ error: Error) -> Void
     
     fileprivate var customUploadRequest: T
     
@@ -25,7 +25,7 @@ class NetworkUploadAgent<T: UploadRequestProtocol> {
     fileprivate var alamofireUploadRequest: Alamofire.UploadRequest?
     
     fileprivate var networkProgress: NetworkUploadProgress?
-    fileprivate var networkSuccess: NetworkUploadSuccess?
+    fileprivate var networkSuccess: NetworkUploadSuccess<T>?
     fileprivate var networkFailure: NetworkUploadFailure?
     
     init(_ uploadRequest: T) {
@@ -34,7 +34,7 @@ class NetworkUploadAgent<T: UploadRequestProtocol> {
         self.uploadSessionManager = Alamofire.SessionManager(configuration: configuration)
     }
     
-    func upload(progress: @escaping NetworkUploadProgress, success: @escaping NetworkUploadSuccess, failure: @escaping NetworkUploadFailure) -> NetworkUploadAgent {
+    func upload(progress: @escaping NetworkUploadProgress, success: @escaping NetworkUploadSuccess<T>, failure: @escaping NetworkUploadFailure) -> NetworkUploadAgent {
         self.networkProgress = progress
         self.networkSuccess = success
         self.networkFailure = failure

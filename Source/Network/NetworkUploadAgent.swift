@@ -34,7 +34,7 @@ class NetworkUploadAgent<T: UploadRequestProtocol> {
         self.uploadSessionManager = Alamofire.SessionManager(configuration: configuration)
     }
     
-    func upload(progress: @escaping NetworkUploadProgress, success: @escaping NetworkUploadSuccess, failure: @escaping NetworkUploadFailure) -> Self{
+    func upload(progress: @escaping NetworkUploadProgress, success: @escaping NetworkUploadSuccess, failure: @escaping NetworkUploadFailure) -> NetworkUploadAgent {
         self.networkProgress = progress
         self.networkSuccess = success
         self.networkFailure = failure
@@ -77,7 +77,7 @@ class NetworkUploadAgent<T: UploadRequestProtocol> {
     }
     
     @discardableResult
-    func cancel() -> Self {
+    func cancel() -> NetworkUploadAgent {
         self.alamofireUploadRequest?.cancel()
         return self
     }

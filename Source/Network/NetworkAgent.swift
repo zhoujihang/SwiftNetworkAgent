@@ -34,7 +34,7 @@ class NetworkAgent<T: RequestProtocol> {
     }
     
     // MARK: 发起请求方法
-    func requestParseResponse(success: @escaping NetworkSuccess, failture: @escaping NetworkFailure) -> Self {
+    func requestParseResponse(success: @escaping NetworkSuccess, failture: @escaping NetworkFailure) -> NetworkAgent {
         self.networkSuccess = success
         self.networkFailure = failture
         
@@ -59,7 +59,7 @@ class NetworkAgent<T: RequestProtocol> {
     }
     
     @discardableResult
-    func cancel() -> Self {
+    func cancel() -> NetworkAgent {
         self.alamofireRequest?.cancel()
         return self
     }

@@ -16,6 +16,9 @@ self.stockRequestAgent = StockRequest().net_agent.requestParseResponse(success: 
 这是 Swift3 编译器编译范型的一个坑？？？🙄️
 求解。。。
 
+解决办法！！！：
+NetworkAgent 类中任意方法不要返回 Self类型, 返回 NetworkAgent类型 就不会报错了。。。
+
 ---
 
 限制：

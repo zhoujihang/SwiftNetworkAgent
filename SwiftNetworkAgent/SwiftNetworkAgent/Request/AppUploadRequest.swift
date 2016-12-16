@@ -25,14 +25,14 @@ class AppUploadReqeust: UploadRequestProtocol {
             let userKey = kPGYerUserKey
             let apiKey = kPGYerAPIKey
             
-            guard let bundlePath = Bundle.main.path(forResource: "LittleApp", ofType: "ipa") else {
-                debugPrint("\(self): \(#function) line:\(#line) LittleApp.ipa 不存在1")
+            guard let bundlePath = Bundle.main.path(forResource: "WhatYouWant", ofType: "mp3") else {
+                debugPrint("\(self): \(#function) line:\(#line) WhatYouWant.mp3 不存在1")
                 return
             }
             
             let fileURL = URL(fileURLWithPath: bundlePath)
             guard let fileData: Data = try? Data(contentsOf: fileURL, options: .mappedIfSafe) else {
-                debugPrint("\(self): \(#function) line:\(#line) LittleApp.ipa 不存在2")
+                debugPrint("\(self): \(#function) line:\(#line) WhatYouWant.mp3 不存在2")
                 return
             }
             

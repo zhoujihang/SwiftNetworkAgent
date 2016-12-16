@@ -21,7 +21,7 @@
 		47AB6BC81E02937500FB2055 /* NetworkAgent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47AB6BC51E02937500FB2055 /* NetworkAgent.swift */; };
 		47AB6BC91E02937500FB2055 /* NetworkUploadAgent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47AB6BC61E02937500FB2055 /* NetworkUploadAgent.swift */; };
 		47AB6BCA1E02937500FB2055 /* RequestProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47AB6BC71E02937500FB2055 /* RequestProtocol.swift */; };
-		47AB6BCC1E0297D500FB2055 /* LittleApp.ipa in Resources */ = {isa = PBXBuildFile; fileRef = 47AB6BCB1E0297D500FB2055 /* LittleApp.ipa */; };
+		47F0AC8D1E03D6CB00FA1846 /* WhatYouWant.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 47F0AC8C1E03D6CB00FA1846 /* WhatYouWant.mp3 */; };
 		505D6A4C5B30295F78529113 /* Pods_SwiftNetworkAgentUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68C7A4933F16BB4205666EBE /* Pods_SwiftNetworkAgentUITests.framework */; };
 		A46A06614A2E57D74E45992E /* Pods_SwiftNetworkAgent.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DA06EEB94A9B7C0EB517176 /* Pods_SwiftNetworkAgent.framework */; };
 /* End PBXBuildFile section */
@@ -65,7 +65,7 @@
 		47AB6BC51E02937500FB2055 /* NetworkAgent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkAgent.swift; sourceTree = "<group>"; };
 		47AB6BC61E02937500FB2055 /* NetworkUploadAgent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkUploadAgent.swift; sourceTree = "<group>"; };
 		47AB6BC71E02937500FB2055 /* RequestProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestProtocol.swift; sourceTree = "<group>"; };
-		47AB6BCB1E0297D500FB2055 /* LittleApp.ipa */ = {isa = PBXFileReference; lastKnownFileType = file; path = LittleApp.ipa; sourceTree = "<group>"; };
+		47F0AC8C1E03D6CB00FA1846 /* WhatYouWant.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = WhatYouWant.mp3; sourceTree = "<group>"; };
 		68C7A4933F16BB4205666EBE /* Pods_SwiftNetworkAgentUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftNetworkAgentUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8054EEA6D1AB9CEF4123474B /* Pods-SwiftNetworkAgentTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftNetworkAgentTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftNetworkAgentTests/Pods-SwiftNetworkAgentTests.release.xcconfig"; sourceTree = "<group>"; };
 		AD98EACB0A37415BE127A4C5 /* Pods-SwiftNetworkAgentUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftNetworkAgentUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftNetworkAgentUITests/Pods-SwiftNetworkAgentUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -172,7 +172,7 @@
 				4770A1571E028AE500A80F86 /* Assets.xcassets */,
 				4770A1591E028AE500A80F86 /* LaunchScreen.storyboard */,
 				4770A15C1E028AE500A80F86 /* Info.plist */,
-				47AB6BCB1E0297D500FB2055 /* LittleApp.ipa */,
+				47F0AC8C1E03D6CB00FA1846 /* WhatYouWant.mp3 */,
 			);
 			name = "Supporting File";
 			sourceTree = "<group>";
@@ -330,10 +330,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				47AB6BCC1E0297D500FB2055 /* LittleApp.ipa in Resources */,
 				4770A15B1E028AE500A80F86 /* LaunchScreen.storyboard in Resources */,
 				4770A1581E028AE500A80F86 /* Assets.xcassets in Resources */,
 				4770A1561E028AE500A80F86 /* Main.storyboard in Resources */,
+				47F0AC8D1E03D6CB00FA1846 /* WhatYouWant.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

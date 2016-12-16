@@ -5,7 +5,7 @@ swift 面向协议方式，封装网络层框架，目前封装Alamofire框架�
 
 本框架使用了swift3.0中的范型机制，实际使用中发现项目在 Debug 下编译没有问题，但是 Release 环境下会出现 Segmentation fault:11 错误。
 
-初步排查是因为 Build Settings 中 Optimization Level 的设置问题，当代码优化级别为 ```None``` 时调用方法不会有问题，当选择 ```Fast,Whole Module Optimization``` 选项时，如下方法调用会报编译错误：
+初步排查是因为 Build Settings 中 Optimization Level 的设置问题，Debug 配置下代码优化级别为 ```None``` 调用方法不会有问题，当选择 Release 配置时，代码优化级别为```Fast,Whole Module Optimization``` 选项，如下方法调用会报编译错误：
 
 ```
 self.stockRequestAgent = StockRequest().net_agent.requestParseResponse(success: { (parseResponse) in
@@ -13,7 +13,7 @@ self.stockRequestAgent = StockRequest().net_agent.requestParseResponse(success: 
 })
 ```
 
-这是 Swift3 编译器的一个坑？？？🙄️
+这是 Swift3 编译器编译范型的一个坑？？？🙄️
 求解。。。
 
 ---

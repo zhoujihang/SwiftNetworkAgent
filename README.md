@@ -1,6 +1,23 @@
 # SwiftNetworkAgent
 swift 面向协议方式，封装网络层框架，目前封装Alamofire框架，支持自由转换JSON格式的结果为任意类型
 
+###警告⚠️：
+
+本框架使用了swift3.0中的范型机制，实际使用中发现项目在 Debug 下编译没有问题，但是 Release 环境下会出现 Segmentation fault:11 错误。
+
+初步排查是因为 Build Settings 中 Optimization Level 的设置问题，当代码优化级别为 ```None``` 时调用方法不会有问题，当选择 ```Fast,Whole Module Optimization``` 选项时，如下方法调用会报编译错误：
+
+```
+self.stockRequestAgent = StockRequest().net_agent.requestParseResponse(success: { (parseResponse) in
+}, failture: { (error) in            
+})
+```
+
+这是 Swift3 编译器的一个坑？？？🙄️
+求解。。。
+
+---
+
 限制：
 
 * 只支持 Get、Post 请求
@@ -12,6 +29,12 @@ swift 面向协议方式，封装网络层框架，目前封装Alamofire框架�
 * 支持网络请求的json结果自动转化为自定义的任何类型
 * 支持 上传文件
 * 轻量级，只包含必要的功能
+
+参考学习：
+
+* [OneV's Den-面向协议编程与 Cocoa 的邂逅 (下)](https://onevcat.com/2016/12/pop-cocoa-2/)
+* [Git-APIKit](https://github.com/ishkawa/APIKit)
+* [Git-Moya](https://github.com/Moya/Moya)
 
 
 ###一般 Get Post 请求的用法
@@ -150,8 +173,4 @@ self.uploadRequestAgent = AppUploadReqeust().net_agent.upload(progress: { (progr
 })
 ```
 
-参考学习：
 
-* [OneV's Den-面向协议编程与 Cocoa 的邂逅 (下)](https://onevcat.com/2016/12/pop-cocoa-2/)
-* [Git-APIKit](https://github.com/ishkawa/APIKit)
-* [Git-Moya](https://github.com/Moya/Moya)

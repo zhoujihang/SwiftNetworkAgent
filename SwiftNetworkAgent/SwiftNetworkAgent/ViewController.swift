@@ -90,30 +90,30 @@ extension ViewController {
     func test0_requestUSStock() {
         self.stockRequestAgent = StockRequest().net_agent.requestParseResponse(success: { (parseResponse) in
             guard let parse = parseResponse else {
-                debugPrint("\(self): \(#function) line:\(#line) parseResponse 为 nil")
+                "parseResponse 为 nil".ext_debugPrint()
                 return
             }
             let shanghai = parse.retData?.market?.shanghai
             let shenzhen = parse.retData?.market?.shenzhen
             let DJI = parse.retData?.market?.DJI
             let IXIC = parse.retData?.market?.IXIC
-            debugPrint("\(self): \(#function) line:\(#line) \(parse)  \(type(of: parse)) errMsg:\(parse.errMsg)  errNum:\(parse.errNum)")
-            debugPrint("\(self): \(#function) line:\(#line) shanghai:\(shanghai)")
-            debugPrint("\(self): \(#function) line:\(#line) shenzhen:\(shenzhen)")
-            debugPrint("\(self): \(#function) line:\(#line) DJI:\(DJI)")
-            debugPrint("\(self): \(#function) line:\(#line) IXIC:\(IXIC)")
+            "\(parse)  \(type(of: parse)) errMsg:\(parse.errMsg)  errNum:\(parse.errNum)".ext_debugPrint()
+            "shanghai:\(shanghai)".ext_debugPrint()
+            "shenzhen:\(shenzhen)".ext_debugPrint()
+            "DJI:\(DJI)".ext_debugPrint()
+            "IXIC:\(IXIC)".ext_debugPrint()
         }, failture: { (error) in
-            debugPrint("\(self): \(#function) line:\(#line) \(error)")
+            "\(error)".ext_debugPrint()
         })
     }
     
     func test1_uploadIPAFile() {
         self.uploadRequestAgent = AppUploadReqeust().net_agent.upload(progress: { (progress) in
-            debugPrint("\(self): \(#function) line:\(#line) \(progress.fractionCompleted)")
+            "\(progress.fractionCompleted)".ext_debugPrint()
         }, success: { (json) in
-            debugPrint("\(self): \(#function) line:\(#line) 成功回调\(json)")
+            "成功回调\(json)".ext_debugPrint()
         }, failure: { (error) in
-            debugPrint("\(self): \(#function) line:\(#line) 失败回调\(error)")
+            "失败回调\(error)".ext_debugPrint()
         })
         
         // 取消上传

@@ -13,7 +13,7 @@ class AppUploadReqeust: UploadRequestProtocol {
     typealias ResponseType = Any
     
     func parse(_ json: Any) -> ResponseType? {
-        debugPrint("\(self): \(#function) line:\(#line) 调用了自己的解析模型")
+        "调用了自己的解析模型".ext_debugPrint()
         return json
     }
     
@@ -26,13 +26,13 @@ class AppUploadReqeust: UploadRequestProtocol {
             let apiKey = kPGYerAPIKey
             
             guard let bundlePath = Bundle.main.path(forResource: "WhatYouWant", ofType: "mp3") else {
-                debugPrint("\(self): \(#function) line:\(#line) WhatYouWant.mp3 不存在1")
+                "WhatYouWant.mp3 不存在1".ext_debugPrint()
                 return
             }
             
             let fileURL = URL(fileURLWithPath: bundlePath)
             guard let fileData: Data = try? Data(contentsOf: fileURL, options: .mappedIfSafe) else {
-                debugPrint("\(self): \(#function) line:\(#line) WhatYouWant.mp3 不存在2")
+                "WhatYouWant.mp3 不存在2".ext_debugPrint()
                 return
             }
             

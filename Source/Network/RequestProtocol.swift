@@ -15,18 +15,19 @@ enum RequestMethod {
 }
 // MARK: - 协议 RequestProtocol
 protocol RequestProtocol {
-    associatedtype ResponseType
     
-    var method: RequestMethod {get}
+    associatedtype ResponseType
+    func parse(_ json: Any) -> ResponseType?
     
     var requestUrl: String {get}                // 必须主动实现，无默认值
-    
+    var method: RequestMethod {get}
     var parameters: [String: Any] {get}
-    var headers: [String: String] {get}
+    
+    var headers: [String: String] {get}         // 单个请求自己的header
+    var commonHeaders: [String: String] {get}   // 通用header
 
     var timeoutForRequest: TimeInterval {get}
     
-    func parse(_ json: Any) -> ResponseType?
 }
 extension RequestProtocol {
     
@@ -34,6 +35,7 @@ extension RequestProtocol {
     
     var parameters: [String: Any] {return [:]}
     var headers: [String: String] {return [:]}
+    var commonHeaders: [String: String] {return [:]}
     
     var timeoutForRequest: TimeInterval {return 30}
 }

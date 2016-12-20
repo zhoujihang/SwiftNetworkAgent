@@ -87,7 +87,7 @@ class NetworkUploadAgent<T: UploadRequestProtocol> {
 extension NetworkUploadAgent {
     fileprivate static func generateConfiguration(by request: T) -> URLSessionConfiguration {
         var additionalHeaders = Alamofire.SessionManager.defaultHTTPHeaders
-        for (key, value) in request.headers{
+        for (key, value) in request.commonHeaders{
             additionalHeaders.updateValue(value, forKey: key)
         }
         

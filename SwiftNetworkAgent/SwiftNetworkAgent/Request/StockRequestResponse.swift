@@ -13,7 +13,10 @@ class StockRequestResponse: Mappable {
     var errNum: Int = 0
     var retData: StockRequestResponseData?
     
-    required init?(map: Map) {}
+    required init?(map: Map) {
+        guard map.JSON["errNum"] != nil else {return nil}
+        guard map.JSON["errMsg"] != nil else {return nil}
+    }
     
     func mapping(map: Map) {
         errMsg <- map["errMsg"]
@@ -53,7 +56,10 @@ class StockRequestResponseDataMarketCity: Mappable, CustomStringConvertible {
     var dealnumber: Int = 0
     var turnover: Int = 0
     
-    required init?(map: Map) {}
+    required init?(map: Map) {
+        guard map.JSON["name"] != nil else {return nil}
+        guard map.JSON["rate"] != nil else {return nil}
+    }
     
     func mapping(map: Map) {
         name <- map["name"]

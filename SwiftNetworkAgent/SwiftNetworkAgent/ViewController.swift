@@ -18,8 +18,8 @@ let kPGYerAPIKey = "your apikey in http://www.pgyer.com/"           // 上传文
 class ViewController: UIViewController {
     lazy var tableView = UITableView()
     
-    var stockRequestAgent: NetworkAgent<StockRequest>?
-    var uploadRequestAgent: NetworkUploadAgent<AppUploadReqeust>?
+    fileprivate var stockRequestAgent: NetworkAgent<StockRequest>?
+    fileprivate var uploadRequestAgent: NetworkUploadAgent<AppUploadReqeust>?
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -34,6 +34,9 @@ class ViewController: UIViewController {
         self.setupViews()
         self.setupConstraints()
     }
+}
+
+private extension ViewController {
     func setupViews() {
         self.tableView.delegate = self
         self.tableView.dataSource = self
@@ -44,8 +47,8 @@ class ViewController: UIViewController {
             maker.edges.equalTo(self.view)
         }
     }
-
 }
+
 // MARK: - 扩展 UITableViewDelegate, UITableViewDataSource
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -85,8 +88,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 // MARK: - 扩展 tableview 点击事件
-extension ViewController {
-    
+private extension ViewController {
     func test0_requestUSStock() {
         self.stockRequestAgent = StockRequest().net_agent.requestParseResponse(success: { (parseResponse) in
             guard let parse = parseResponse else {
@@ -104,7 +106,7 @@ extension ViewController {
             "IXIC:\(IXIC)".ext_debugPrint()
         }, failture: { (error) in
             "\(error)".ext_debugPrint()
-        })
+        }).needLoading(self)
     }
     
     func test1_uploadIPAFile() {
@@ -114,7 +116,7 @@ extension ViewController {
             "成功回调\(json)".ext_debugPrint()
         }, failure: { (error) in
             "失败回调\(error)".ext_debugPrint()
-        })
+        }).needLoading(self)
         
         // 取消上传
 //        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 4) {

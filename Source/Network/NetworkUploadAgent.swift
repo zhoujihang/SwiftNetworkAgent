@@ -19,7 +19,11 @@ typealias NetworkUploadFailure = (_ error: Error) -> Void
 
 class NetworkUploadAgent<T: UploadRequestProtocol> {
     
+    fileprivate(set) var isFinished: Bool = false               // 请求是否已经完成
+    fileprivate(set) var isCanceled: Bool = false               // 请求是否被cancel
     fileprivate var customUploadRequest: T
+    
+    fileprivate weak var needLoadingVC: UIViewController?     // 需要自动显示loading的页面
     
     fileprivate var uploadSessionManager: Alamofire.SessionManager
     fileprivate var alamofireUploadRequest: Alamofire.UploadRequest?
@@ -53,6 +57,10 @@ class NetworkUploadAgent<T: UploadRequestProtocol> {
                         progressBlock(progress)
                     }
                 }.responseJSON { jsonResponse in
+                    defer {
+                        self?.isFinished = true
+                        self?.needLoadingVC?.ldt_loadingCountReduce()
+                    }
                     switch jsonResponse.result {
                     case .success(let json):
                         if let successBlock = self?.networkSuccess {
@@ -66,6 +74,10 @@ class NetworkUploadAgent<T: UploadRequestProtocol> {
                     }
                 }
             case .failure(let error):
+                defer {
+                    self?.isFinished = true
+                    self?.needLoadingVC?.ldt_loadingCountReduce()
+                }
                 if let failureBlock = self?.networkFailure {
                     failureBlock(error)
                 }
@@ -79,6 +91,7 @@ class NetworkUploadAgent<T: UploadRequestProtocol> {
     @discardableResult
     func cancel() -> NetworkUploadAgent {
         self.alamofireUploadRequest?.cancel()
+        self.isCanceled = true
         return self
     }
     
@@ -96,5 +109,14 @@ extension NetworkUploadAgent {
         configuration.timeoutIntervalForRequest = request.timeoutForRequest
         
         return configuration
+    }
+}
+
+// MARK: - 扩展 针对 LoadingTool 的加载框便利方法
+extension NetworkUploadAgent {
+    func needLoading(_ viewController: UIViewController) -> NetworkUploadAgent {
+        self.needLoadingVC = viewController
+        self.needLoadingVC?.ldt_loadingCountAdd()
+        return self
     }
 }

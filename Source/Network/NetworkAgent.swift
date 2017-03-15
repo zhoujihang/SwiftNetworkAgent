@@ -18,7 +18,11 @@ typealias NetworkFailure = (_ error: Error) -> Void
 
 class NetworkAgent<T: RequestProtocol> {
     
-    fileprivate var customRequest: T
+    fileprivate(set) var isFinished: Bool = false               // 请求是否已经完成
+    fileprivate(set) var isCanceled: Bool = false               // 请求是否被cancel
+    fileprivate(set) var customRequest: T
+    
+    fileprivate weak var needLoadingVC: UIViewController?     // 需要自动显示loading的页面
     
     fileprivate var sessionManager: Alamofire.SessionManager
     fileprivate var alamofireRequest: Alamofire.DataRequest?
@@ -40,7 +44,10 @@ class NetworkAgent<T: RequestProtocol> {
         
         let handler: ((Alamofire.DataResponse<Any>) -> Void) = {
             [weak self] response in
-            
+            defer {
+                self?.isFinished = true
+                self?.needLoadingVC?.ldt_loadingCountReduce()
+            }
             switch response.result {
             case .success(let json):
                 if let success = self?.networkSuccess {
@@ -61,11 +68,9 @@ class NetworkAgent<T: RequestProtocol> {
     @discardableResult
     func cancel() -> NetworkAgent {
         self.alamofireRequest?.cancel()
+        self.isCanceled = true
         return self
     }
-    
-    
-    
 }
 
 
@@ -99,7 +104,14 @@ extension NetworkAgent {
     }
 }
 
-
+// MARK: - 扩展 针对 LoadingTool 的加载框便利方法
+extension NetworkAgent {
+    func needLoading(_ viewController: UIViewController) -> NetworkAgent {
+        self.needLoadingVC = viewController
+        self.needLoadingVC?.ldt_loadingCountAdd()
+        return self
+    }
+}
 
 
 

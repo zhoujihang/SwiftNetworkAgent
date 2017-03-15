@@ -25,7 +25,7 @@ protocol RequestProtocol {
     
     var headers: [String: String] {get}         // 单个请求自己的header
     var commonHeaders: [String: String] {get}   // 通用header
-
+    var encodedURLRequest: URLRequest? {get}
     var timeoutForRequest: TimeInterval {get}
     
 }
@@ -35,26 +35,23 @@ extension RequestProtocol {
     
     var parameters: [String: Any] {return [:]}
     var headers: [String: String] {return [:]}
-    var commonHeaders: [String: String] {return [:]}
-    
+    var commonHeaders: [String: String] {return NetworkHeaderTool.commonRequestHeader()}
     var timeoutForRequest: TimeInterval {return 30}
-}
-
-
-
-
-
-
-// MARK: - 协议 UploadRequestProtocol
-protocol UploadRequestProtocol: RequestProtocol {
     
-    var multipartFormDataBlock: ((MultipartFormData) -> Void) {get}         // 必须主动实现，无默认值
-    
+    var encodedURLRequest: URLRequest? {
+        let method = self.method == .Get ? HTTPMethod.get : HTTPMethod.post
+        do {
+            let originalRequest = try URLRequest(url: self.requestUrl, method: method, headers: headers)
+            let encodedURLRequest = try URLEncoding.default.encode(originalRequest, with: parameters)
+            return encodedURLRequest
+        } catch {
+            return nil
+        }
+    }
 }
-extension UploadRequestProtocol {
-    var method: RequestMethod {return .Post}
-    var timeoutForRequest: TimeInterval {return 60}
-}
+
+
+
 
 
 

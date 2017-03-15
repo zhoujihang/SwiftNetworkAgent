@@ -13,41 +13,12 @@ swift 面向协议方式，封装网络层框架，目前封装Alamofire框架�
 * 支持 上传文件
 * 轻量级，只包含必要的功能
 
-参考学习：
-
-* [OneV's Den-面向协议编程与 Cocoa 的邂逅 (下)](https://onevcat.com/2016/12/pop-cocoa-2/)
-* [Git-APIKit](https://github.com/ishkawa/APIKit)
-* [Git-Moya](https://github.com/Moya/Moya)
-
 
 ###一般 Get Post 请求的用法
 实现如下协议：
 
 ```
-protocol RequestProtocol {
-    associatedtype ResponseType
-    
-    var method: RequestMethod {get}
-    
-    var requestUrl: String {get}                // 必须主动实现，无默认值
-    
-    var parameters: [String: Any] {get}
-    var headers: [String: String] {get}
-
-    var timeoutForRequest: TimeInterval {get}
-    
-    func parse(_ json: Any) -> ResponseType?
-}
-
-extension RequestProtocol {
-    
-    var method: RequestMethod {return .Get}
-    
-    var parameters: [String: Any] {return [:]}
-    var headers: [String: String] {return [:]}
-    
-    var timeoutForRequest: TimeInterval {return 30}
-}
+protocol RequestProtocol 
 ```
 
 实现类，其中ResponseType可以任意指定请求结果的返回类型：
@@ -71,16 +42,10 @@ class StockRequest: RequestProtocol {
 使用:
 
 ```
-self.stockRequestAgent = StockRequest().net_agent.requestParseResponse(success: { (parseResponse) in
-    guard let parse = parseResponse else {
-        debugPrint("\(self): \(#function) line:\(#line) parseResponse 为 nil")
-        return
-    }
-    let shanghai = parse.retData?.market?.shanghai
-    debugPrint("\(self): \(#function) line:\(#line) \(parse)  \(type(of: parse)) errMsg:\(parse.errMsg)  errNum:\(parse.errNum)")
-    debugPrint("\(self): \(#function) line:\(#line) shanghai:\(shanghai)")
+self.stockRequestAgent = StockRequest().net_agent.requestParseResponse(success: { (response) in
+    debugPrint("response")
 }, failture: { (error) in
-    debugPrint("\(self): \(#function) line:\(#line) \(error)")
+    debugPrint("error")
 })
 ```
 
@@ -96,14 +61,7 @@ self.stockRequestAgent = StockRequest().net_agent.requestParseResponse(success: 
 实现如下协议
 
 ```
-protocol UploadRequestProtocol: RequestProtocol {
-    var multipartFormDataBlock: ((MultipartFormData) -> Void) {get}         // 必须主动实现，无默认值
-}
-extension UploadRequestProtocol {
-    var method: RequestMethod {return .Post}
-    var timeoutForRequest: TimeInterval {return 60}
-}
-
+protocol UploadRequestProtocol
 ```
 
 实现类，此处ResponseType未做任何处理，依然为json对象
@@ -148,12 +106,16 @@ class AppUploadReqeust: UploadRequestProtocol {
 
 ```
 self.uploadRequestAgent = AppUploadReqeust().net_agent.upload(progress: { (progress) in
-    debugPrint("\(self): \(#function) line:\(#line) \(progress.fractionCompleted)")
-}, success: { (json) in
-    debugPrint("\(self): \(#function) line:\(#line) 成功回调\(json)")
+    debugPrint("\(progress.fractionCompleted)")
+}, success: { (response) in
+    debugPrint("\(response)")
 }, failure: { (error) in
-    debugPrint("\(self): \(#function) line:\(#line) 失败回调\(error)")
+    debugPrint("\(error)")
 })
 ```
 
+参考学习：
 
+* [OneV's Den-面向协议编程与 Cocoa 的邂逅 (下)](https://onevcat.com/2016/12/pop-cocoa-2/)
+* [Git-APIKit](https://github.com/ishkawa/APIKit)
+* [Git-Moya](https://github.com/Moya/Moya)

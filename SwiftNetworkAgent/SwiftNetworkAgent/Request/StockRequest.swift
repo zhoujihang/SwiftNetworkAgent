@@ -16,7 +16,7 @@ class StockRequest: RequestProtocol {
         return StockRequestResponse(JSON: dic)
     }
     
-    var requestUrl: String { return "http://apis.baidu.com/apistore/stockservice/usastock" }
+    var requestUrl: String { return NetworkUrlTool.stockURL }
     var headers: [String : String] { return ["apikey" : kAPIStoreKey] }
     var parameters: [String : Any] { return ["stockid" : "bidu", "list" : "1"] }
 }

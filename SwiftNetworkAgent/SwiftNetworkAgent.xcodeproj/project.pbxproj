@@ -17,6 +17,10 @@
 		474D2A6A1E78F43200B26B98 /* NetworkHeaderTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474D2A691E78F43200B26B98 /* NetworkHeaderTool.swift */; };
 		474D2A6D1E78F4C200B26B98 /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474D2A6B1E78F4C200B26B98 /* ArrayExtension.swift */; };
 		474D2A6E1E78F4C200B26B98 /* DictionaryExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474D2A6C1E78F4C200B26B98 /* DictionaryExtension.swift */; };
+		474D2A711E78F95D00B26B98 /* HintTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474D2A701E78F95D00B26B98 /* HintTool.swift */; };
+		474D2A731E78F98300B26B98 /* RequestErrorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474D2A721E78F98300B26B98 /* RequestErrorModel.swift */; };
+		474D2A751E79120100B26B98 /* NetworkUrlTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474D2A741E79120100B26B98 /* NetworkUrlTool.swift */; };
+		474D2A771E7917DC00B26B98 /* StockRequestResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474D2A761E7917DC00B26B98 /* StockRequestResponse.swift */; };
 		4770A1511E028AE500A80F86 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4770A1501E028AE500A80F86 /* AppDelegate.swift */; };
 		4770A1531E028AE500A80F86 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4770A1521E028AE500A80F86 /* ViewController.swift */; };
 		4770A1561E028AE500A80F86 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4770A1541E028AE500A80F86 /* Main.storyboard */; };
@@ -26,7 +30,6 @@
 		4770A1711E028AE500A80F86 /* SwiftNetworkAgentUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4770A1701E028AE500A80F86 /* SwiftNetworkAgentUITests.swift */; };
 		47AB6BC01E02927200FB2055 /* AppUploadRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47AB6BBD1E02927200FB2055 /* AppUploadRequest.swift */; };
 		47AB6BC11E02927200FB2055 /* StockRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47AB6BBE1E02927200FB2055 /* StockRequest.swift */; };
-		47AB6BC21E02927200FB2055 /* StockRequestResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47AB6BBF1E02927200FB2055 /* StockRequestResponse.swift */; };
 		47AB6BC81E02937500FB2055 /* NetworkAgent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47AB6BC51E02937500FB2055 /* NetworkAgent.swift */; };
 		47AB6BC91E02937500FB2055 /* NetworkUploadAgent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47AB6BC61E02937500FB2055 /* NetworkUploadAgent.swift */; };
 		47AB6BCA1E02937500FB2055 /* RequestProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47AB6BC71E02937500FB2055 /* RequestProtocol.swift */; };
@@ -64,6 +67,10 @@
 		474D2A691E78F43200B26B98 /* NetworkHeaderTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkHeaderTool.swift; sourceTree = "<group>"; };
 		474D2A6B1E78F4C200B26B98 /* ArrayExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayExtension.swift; sourceTree = "<group>"; };
 		474D2A6C1E78F4C200B26B98 /* DictionaryExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryExtension.swift; sourceTree = "<group>"; };
+		474D2A701E78F95D00B26B98 /* HintTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HintTool.swift; sourceTree = "<group>"; };
+		474D2A721E78F98300B26B98 /* RequestErrorModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestErrorModel.swift; sourceTree = "<group>"; };
+		474D2A741E79120100B26B98 /* NetworkUrlTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkUrlTool.swift; sourceTree = "<group>"; };
+		474D2A761E7917DC00B26B98 /* StockRequestResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StockRequestResponse.swift; sourceTree = "<group>"; };
 		4770A14D1E028AE500A80F86 /* SwiftNetworkAgent.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftNetworkAgent.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4770A1501E028AE500A80F86 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4770A1521E028AE500A80F86 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -79,7 +86,6 @@
 		4770A1721E028AE500A80F86 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		47AB6BBD1E02927200FB2055 /* AppUploadRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppUploadRequest.swift; sourceTree = "<group>"; };
 		47AB6BBE1E02927200FB2055 /* StockRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StockRequest.swift; sourceTree = "<group>"; };
-		47AB6BBF1E02927200FB2055 /* StockRequestResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StockRequestResponse.swift; sourceTree = "<group>"; };
 		47AB6BC51E02937500FB2055 /* NetworkAgent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkAgent.swift; sourceTree = "<group>"; };
 		47AB6BC61E02937500FB2055 /* NetworkUploadAgent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkUploadAgent.swift; sourceTree = "<group>"; };
 		47AB6BC71E02937500FB2055 /* RequestProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestProtocol.swift; sourceTree = "<group>"; };
@@ -134,6 +140,7 @@
 		474D2A591E78EEA600B26B98 /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				474D2A6F1E78F95D00B26B98 /* HintTool */,
 				474D2A5A1E78EEB300B26B98 /* LoadingHUD */,
 			);
 			path = Tool;
@@ -164,8 +171,17 @@
 			isa = PBXGroup;
 			children = (
 				474D2A691E78F43200B26B98 /* NetworkHeaderTool.swift */,
+				474D2A741E79120100B26B98 /* NetworkUrlTool.swift */,
 			);
 			path = NetworkTool;
+			sourceTree = "<group>";
+		};
+		474D2A6F1E78F95D00B26B98 /* HintTool */ = {
+			isa = PBXGroup;
+			children = (
+				474D2A701E78F95D00B26B98 /* HintTool.swift */,
+			);
+			path = HintTool;
 			sourceTree = "<group>";
 		};
 		4770A1441E028AE500A80F86 = {
@@ -238,7 +254,7 @@
 			isa = PBXGroup;
 			children = (
 				47AB6BBE1E02927200FB2055 /* StockRequest.swift */,
-				47AB6BBF1E02927200FB2055 /* StockRequestResponse.swift */,
+				474D2A761E7917DC00B26B98 /* StockRequestResponse.swift */,
 				47AB6BBD1E02927200FB2055 /* AppUploadRequest.swift */,
 			);
 			path = Request;
@@ -249,6 +265,7 @@
 			children = (
 				47AB6BC71E02937500FB2055 /* RequestProtocol.swift */,
 				474D2A661E78F3A500B26B98 /* UploadRequestProtocol.swift */,
+				474D2A721E78F98300B26B98 /* RequestErrorModel.swift */,
 				47AB6BC51E02937500FB2055 /* NetworkAgent.swift */,
 				47AB6BC61E02937500FB2055 /* NetworkUploadAgent.swift */,
 				474D2A681E78F40B00B26B98 /* NetworkTool */,
@@ -555,8 +572,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				474D2A731E78F98300B26B98 /* RequestErrorModel.swift in Sources */,
+				474D2A771E7917DC00B26B98 /* StockRequestResponse.swift in Sources */,
 				47AB6BC01E02927200FB2055 /* AppUploadRequest.swift in Sources */,
-				47AB6BC21E02927200FB2055 /* StockRequestResponse.swift in Sources */,
 				47AB6BC91E02937500FB2055 /* NetworkUploadAgent.swift in Sources */,
 				474D2A5E1E78EEB300B26B98 /* LoadingView.swift in Sources */,
 				47AB6BCA1E02937500FB2055 /* RequestProtocol.swift in Sources */,
@@ -567,6 +585,8 @@
 				474D2A6E1E78F4C200B26B98 /* DictionaryExtension.swift in Sources */,
 				47AB6BC11E02927200FB2055 /* StockRequest.swift in Sources */,
 				474D2A6A1E78F43200B26B98 /* NetworkHeaderTool.swift in Sources */,
+				474D2A711E78F95D00B26B98 /* HintTool.swift in Sources */,
+				474D2A751E79120100B26B98 /* NetworkUrlTool.swift in Sources */,
 				474D2A6D1E78F4C200B26B98 /* ArrayExtension.swift in Sources */,
 				474D2A651E78EF7C00B26B98 /* UIViewControllerExtension.swift in Sources */,
 				474D2A631E78EF5D00B26B98 /* UIWindowExtension.swift in Sources */,

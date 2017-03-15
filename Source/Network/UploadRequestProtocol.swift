@@ -20,7 +20,8 @@ protocol UploadRequestProtocol {
     var encodedURLRequest: URLRequest? {get}
     var timeoutForRequest: TimeInterval {get}
     
-    var multipartFormDataBlock: ((MultipartFormData) -> Void) {get}        // MultipartFormData 格式数据
+    var multipartFormDataBlock: ((MultipartFormData) -> Void)? {get}        // MultipartFormData 格式数据
+    var uploadData: Data? {get}                                             // Data 二进制格式数据
 }
 extension UploadRequestProtocol {
     var timeoutForRequest: TimeInterval {return 60}

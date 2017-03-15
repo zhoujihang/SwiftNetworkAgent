@@ -13,13 +13,13 @@ class AppUploadReqeust: UploadRequestProtocol {
     typealias ResponseType = Any
     
     func parse(_ json: Any) -> ResponseType? {
-        "调用了自己的解析模型".ext_debugPrint()
+        "解析模型".ext_debugPrint()
         return json
     }
     
-    var requestUrl: String { return "http://www.pgyer.com/apiv1/app/upload" }
+    var requestUrl: String { return NetworkUrlTool.pgyUploadURL }
     
-    var multipartFormDataBlock: ((MultipartFormData) -> Void) {
+    var multipartFormDataBlock: ((MultipartFormData) -> Void)? {
         let block: ((MultipartFormData) -> Void) = {
             multipartFormData in
             let userKey = kPGYerUserKey
@@ -42,6 +42,7 @@ class AppUploadReqeust: UploadRequestProtocol {
         }
         return block
     }
+    var uploadData: Data?
 }
 
 

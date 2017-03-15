@@ -13,6 +13,37 @@ enum RequestMethod {
     case Get
     case Post
 }
+
+// 网络错误枚举
+enum RequestError: Error {
+    case responseNone                                   // 返回结果中没有httpurlresponse对象
+    case responseParseNil(Any)                          // 网络结果转为模型时失败，返回nil
+    case responseCodeError(RequestErrorModel)           // 网络状态码不是200，转为错误模型后传给失败回调
+    case alamofireError(Error)                          // alamofire提供的错误
+}
+extension RequestError {
+    @discardableResult
+    func ext_debugPrint() -> RequestError {
+        #if DEBUG
+            var result = ""
+            switch self {
+            case RequestError.responseNone:
+                result = "未返回 HTTPURLResponse"
+            case RequestError.responseParseNil(let json):
+                result = "无法解析的json数据-\(json)"
+            case RequestError.responseCodeError(let errorModel):
+                result = errorModel.description
+            case RequestError.alamofireError(let alamofireError):
+                result = alamofireError.localizedDescription
+            }
+            
+            "RequestError:\(result)".ext_debugPrint()
+        #endif
+        return self
+    }
+}
+
+
 // MARK: - 协议 RequestProtocol
 protocol RequestProtocol {
     

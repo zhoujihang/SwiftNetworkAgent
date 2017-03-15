@@ -90,33 +90,29 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
 // MARK: - 扩展 tableview 点击事件
 private extension ViewController {
     func test0_requestUSStock() {
-        self.stockRequestAgent = StockRequest().net_agent.requestParseResponse(success: { (parseResponse) in
-            guard let parse = parseResponse else {
-                "parseResponse 为 nil".ext_debugPrint()
-                return
-            }
-            let shanghai = parse.retData?.market?.shanghai
-            let shenzhen = parse.retData?.market?.shenzhen
-            let DJI = parse.retData?.market?.DJI
-            let IXIC = parse.retData?.market?.IXIC
-            "\(parse)  \(type(of: parse)) errMsg:\(parse.errMsg)  errNum:\(parse.errNum)".ext_debugPrint()
+        self.stockRequestAgent = StockRequest().net_agent.requestParseResponse(success: { (response) in
+            let shanghai = response.retData?.market?.shanghai
+            let shenzhen = response.retData?.market?.shenzhen
+            let DJI = response.retData?.market?.DJI
+            let IXIC = response.retData?.market?.IXIC
+            "\(response)  \(type(of: response)) errMsg:\(response.errMsg)  errNum:\(response.errNum)".ext_debugPrint()
             "shanghai:\(shanghai)".ext_debugPrint()
             "shenzhen:\(shenzhen)".ext_debugPrint()
             "DJI:\(DJI)".ext_debugPrint()
             "IXIC:\(IXIC)".ext_debugPrint()
-        }, failture: { (error) in
-            "\(error)".ext_debugPrint()
+        }, failure: { (_) in
+            
         }).needLoading(self)
     }
     
     func test1_uploadIPAFile() {
-        self.uploadRequestAgent = AppUploadReqeust().net_agent.upload(progress: { (progress) in
+        self.uploadRequestAgent = AppUploadReqeust().net_agent.uploadMultipartFormData(progress: { (progress) in
             "\(progress.fractionCompleted)".ext_debugPrint()
-        }, success: { (json) in
-            "成功回调\(json)".ext_debugPrint()
+        }, success: { (response) in
+            "成功回调\(response)".ext_debugPrint()
         }, failure: { (error) in
             "失败回调\(error)".ext_debugPrint()
-        }).needLoading(self)
+        }).needLoading(self).hintErrorInfo(false)
         
         // 取消上传
 //        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 4) {

@@ -46,7 +46,7 @@ self.stockRequestAgent = StockRequest().net_agent.requestParseResponse(success: 
     debugPrint("response")
 }, failture: { (error) in
     debugPrint("error")
-})
+}).needLoading(self)
 ```
 
 结果：
@@ -111,7 +111,7 @@ self.uploadRequestAgent = AppUploadReqeust().net_agent.upload(progress: { (progr
     debugPrint("\(response)")
 }, failure: { (error) in
     debugPrint("\(error)")
-})
+}).needLoading(self)
 ```
 
 参考学习：

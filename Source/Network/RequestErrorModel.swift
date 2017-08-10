@@ -23,7 +23,7 @@ class RequestErrorModel: Mappable {
 
 extension RequestErrorModel: CustomStringConvertible {
     var description: String {
-        let message = "\(type(of: self)) \(self.error))"
+        let message = "\(type(of: self)) \(String(describing: self.error)))"
         return message
     }
 }
@@ -52,7 +52,7 @@ class RequestErrorErrorModel: Mappable {
 
 extension RequestErrorErrorModel: CustomStringConvertible {
     var description: String {
-        let message = "\(type(of: self)) \(self.code) \(self.message)  \(self.type) \(self.sub_code) \(self.prompt_info) \(self.prompt_type))"
+        let message = "\(type(of: self)) \(String(describing: self.code)) \(String(describing: self.message))  \(String(describing: self.type)) \(String(describing: self.sub_code)) \(String(describing: self.prompt_info)) \(String(describing: self.prompt_type)))"
         return message
     }
 }

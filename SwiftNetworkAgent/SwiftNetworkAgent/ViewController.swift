@@ -18,8 +18,8 @@ let kPGYerAPIKey = "your apikey in http://www.pgyer.com/"           // 上传文
 class ViewController: UIViewController {
     lazy var tableView = UITableView()
     
-    fileprivate var stockRequestAgent: NetworkAgent<StockRequest>?
     fileprivate var uploadRequestAgent: NetworkUploadAgent<AppUploadReqeust>?
+    fileprivate var weatherAgent: NetworkAgent<WeatherRequest>?
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -64,7 +64,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         
         var title = "\(indexPath.section) - \(indexPath.row)"
         if indexPath.row == 0 {
-            title = "一般查询请求"
+            title = "天气查询"
         } else if indexPath.row == 1 {
             title = "上传文件请求"
         }
@@ -78,34 +78,27 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath)
-        debugPrint("did click \(cell?.textLabel?.text)")
+        debugPrint("did click \(String(describing: cell?.textLabel?.text))")
         
         if indexPath.row == 0 {
-            self.test0_requestUSStock()
+            self.test0()
         } else if indexPath.row == 1 {
-            self.test1_uploadIPAFile()
+            self.test1()
         }
     }
 }
 // MARK: - 扩展 tableview 点击事件
 private extension ViewController {
-    func test0_requestUSStock() {
-        self.stockRequestAgent = StockRequest().net_agent.requestParseResponse(success: { (response) in
-            let shanghai = response.retData?.market?.shanghai
-            let shenzhen = response.retData?.market?.shenzhen
-            let DJI = response.retData?.market?.DJI
-            let IXIC = response.retData?.market?.IXIC
-            "\(response)  \(type(of: response)) errMsg:\(response.errMsg)  errNum:\(response.errNum)".ext_debugPrint()
-            "shanghai:\(shanghai)".ext_debugPrint()
-            "shenzhen:\(shenzhen)".ext_debugPrint()
-            "DJI:\(DJI)".ext_debugPrint()
-            "IXIC:\(IXIC)".ext_debugPrint()
-        }, failure: { (_) in
-            
-        }).needLoading(self)
+    func test0() {
+        self.weatherAgent = WeatherRequest().net_agent.requestParseResponse(success: { (response) in
+            "air:-------------------\(response.air)".ext_debugPrint()
+            "alarm:-----------------\(response.alarm)".ext_debugPrint()
+            "forecast:--------------\(response.forecast)".ext_debugPrint()
+            "observe:---------------\(response.observe)".ext_debugPrint()
+        }, failure: {_ in}).needLoading(self)
     }
     
-    func test1_uploadIPAFile() {
+    func test1() {
         self.uploadRequestAgent = AppUploadReqeust().net_agent.uploadMultipartFormData(progress: { (progress) in
             "\(progress.fractionCompleted)".ext_debugPrint()
         }, success: { (response) in
@@ -120,5 +113,7 @@ private extension ViewController {
 //            self?.uploadRequestAgent?.cancel()
 //        }
     }
+    
+    
 }
 

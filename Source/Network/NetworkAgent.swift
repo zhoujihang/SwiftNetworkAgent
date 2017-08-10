@@ -42,8 +42,7 @@ final class NetworkAgent<T: RequestProtocol> {
         self.cancel()
         
         self.networkSuccess = success
-        self.networkFailure = {
-            [weak self] error in
+        self.networkFailure = { [weak self] error in
             self?.commonFailureBlock(error)
             failure(error)
         }

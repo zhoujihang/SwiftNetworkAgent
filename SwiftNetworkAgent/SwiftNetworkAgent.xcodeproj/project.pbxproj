@@ -20,7 +20,6 @@
 		474D2A711E78F95D00B26B98 /* HintTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474D2A701E78F95D00B26B98 /* HintTool.swift */; };
 		474D2A731E78F98300B26B98 /* RequestErrorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474D2A721E78F98300B26B98 /* RequestErrorModel.swift */; };
 		474D2A751E79120100B26B98 /* NetworkUrlTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474D2A741E79120100B26B98 /* NetworkUrlTool.swift */; };
-		474D2A771E7917DC00B26B98 /* StockRequestResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474D2A761E7917DC00B26B98 /* StockRequestResponse.swift */; };
 		4770A1511E028AE500A80F86 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4770A1501E028AE500A80F86 /* AppDelegate.swift */; };
 		4770A1531E028AE500A80F86 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4770A1521E028AE500A80F86 /* ViewController.swift */; };
 		4770A1561E028AE500A80F86 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4770A1541E028AE500A80F86 /* Main.storyboard */; };
@@ -29,10 +28,11 @@
 		4770A1661E028AE500A80F86 /* SwiftNetworkAgentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4770A1651E028AE500A80F86 /* SwiftNetworkAgentTests.swift */; };
 		4770A1711E028AE500A80F86 /* SwiftNetworkAgentUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4770A1701E028AE500A80F86 /* SwiftNetworkAgentUITests.swift */; };
 		47AB6BC01E02927200FB2055 /* AppUploadRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47AB6BBD1E02927200FB2055 /* AppUploadRequest.swift */; };
-		47AB6BC11E02927200FB2055 /* StockRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47AB6BBE1E02927200FB2055 /* StockRequest.swift */; };
 		47AB6BC81E02937500FB2055 /* NetworkAgent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47AB6BC51E02937500FB2055 /* NetworkAgent.swift */; };
 		47AB6BC91E02937500FB2055 /* NetworkUploadAgent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47AB6BC61E02937500FB2055 /* NetworkUploadAgent.swift */; };
 		47AB6BCA1E02937500FB2055 /* RequestProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47AB6BC71E02937500FB2055 /* RequestProtocol.swift */; };
+		47B4167B1F3B1ECA00EA2D4C /* WeatherRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B4167A1F3B1ECA00EA2D4C /* WeatherRequest.swift */; };
+		47B4167D1F3B20A700EA2D4C /* WeatherRequestResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B4167C1F3B20A700EA2D4C /* WeatherRequestResponse.swift */; };
 		47F0AC8D1E03D6CB00FA1846 /* WhatYouWant.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 47F0AC8C1E03D6CB00FA1846 /* WhatYouWant.mp3 */; };
 		505D6A4C5B30295F78529113 /* Pods_SwiftNetworkAgentUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68C7A4933F16BB4205666EBE /* Pods_SwiftNetworkAgentUITests.framework */; };
 		A46A06614A2E57D74E45992E /* Pods_SwiftNetworkAgent.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DA06EEB94A9B7C0EB517176 /* Pods_SwiftNetworkAgent.framework */; };
@@ -70,7 +70,6 @@
 		474D2A701E78F95D00B26B98 /* HintTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HintTool.swift; sourceTree = "<group>"; };
 		474D2A721E78F98300B26B98 /* RequestErrorModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestErrorModel.swift; sourceTree = "<group>"; };
 		474D2A741E79120100B26B98 /* NetworkUrlTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkUrlTool.swift; sourceTree = "<group>"; };
-		474D2A761E7917DC00B26B98 /* StockRequestResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StockRequestResponse.swift; sourceTree = "<group>"; };
 		4770A14D1E028AE500A80F86 /* SwiftNetworkAgent.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftNetworkAgent.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4770A1501E028AE500A80F86 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4770A1521E028AE500A80F86 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -85,10 +84,11 @@
 		4770A1701E028AE500A80F86 /* SwiftNetworkAgentUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftNetworkAgentUITests.swift; sourceTree = "<group>"; };
 		4770A1721E028AE500A80F86 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		47AB6BBD1E02927200FB2055 /* AppUploadRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppUploadRequest.swift; sourceTree = "<group>"; };
-		47AB6BBE1E02927200FB2055 /* StockRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StockRequest.swift; sourceTree = "<group>"; };
 		47AB6BC51E02937500FB2055 /* NetworkAgent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkAgent.swift; sourceTree = "<group>"; };
 		47AB6BC61E02937500FB2055 /* NetworkUploadAgent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkUploadAgent.swift; sourceTree = "<group>"; };
 		47AB6BC71E02937500FB2055 /* RequestProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestProtocol.swift; sourceTree = "<group>"; };
+		47B4167A1F3B1ECA00EA2D4C /* WeatherRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherRequest.swift; sourceTree = "<group>"; };
+		47B4167C1F3B20A700EA2D4C /* WeatherRequestResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherRequestResponse.swift; sourceTree = "<group>"; };
 		47F0AC8C1E03D6CB00FA1846 /* WhatYouWant.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = WhatYouWant.mp3; sourceTree = "<group>"; };
 		68C7A4933F16BB4205666EBE /* Pods_SwiftNetworkAgentUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftNetworkAgentUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8054EEA6D1AB9CEF4123474B /* Pods-SwiftNetworkAgentTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftNetworkAgentTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftNetworkAgentTests/Pods-SwiftNetworkAgentTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -253,9 +253,9 @@
 		47AB6BBC1E02925400FB2055 /* Request */ = {
 			isa = PBXGroup;
 			children = (
-				47AB6BBE1E02927200FB2055 /* StockRequest.swift */,
-				474D2A761E7917DC00B26B98 /* StockRequestResponse.swift */,
 				47AB6BBD1E02927200FB2055 /* AppUploadRequest.swift */,
+				47B4167A1F3B1ECA00EA2D4C /* WeatherRequest.swift */,
+				47B4167C1F3B20A700EA2D4C /* WeatherRequestResponse.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -359,7 +359,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0810;
-				LastUpgradeCheck = 0810;
+				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = com.zjh;
 				TargetAttributes = {
 					4770A14C1E028AE500A80F86 = {
@@ -573,17 +573,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				474D2A731E78F98300B26B98 /* RequestErrorModel.swift in Sources */,
-				474D2A771E7917DC00B26B98 /* StockRequestResponse.swift in Sources */,
 				47AB6BC01E02927200FB2055 /* AppUploadRequest.swift in Sources */,
 				47AB6BC91E02937500FB2055 /* NetworkUploadAgent.swift in Sources */,
 				474D2A5E1E78EEB300B26B98 /* LoadingView.swift in Sources */,
+				47B4167D1F3B20A700EA2D4C /* WeatherRequestResponse.swift in Sources */,
 				47AB6BCA1E02937500FB2055 /* RequestProtocol.swift in Sources */,
 				474D2A5D1E78EEB300B26B98 /* LoadingTool.swift in Sources */,
 				474D2A671E78F3A500B26B98 /* UploadRequestProtocol.swift in Sources */,
 				47AB6BC81E02937500FB2055 /* NetworkAgent.swift in Sources */,
 				4770A1531E028AE500A80F86 /* ViewController.swift in Sources */,
 				474D2A6E1E78F4C200B26B98 /* DictionaryExtension.swift in Sources */,
-				47AB6BC11E02927200FB2055 /* StockRequest.swift in Sources */,
+				47B4167B1F3B1ECA00EA2D4C /* WeatherRequest.swift in Sources */,
 				474D2A6A1E78F43200B26B98 /* NetworkHeaderTool.swift in Sources */,
 				474D2A711E78F95D00B26B98 /* HintTool.swift in Sources */,
 				474D2A751E79120100B26B98 /* NetworkUrlTool.swift in Sources */,
@@ -664,6 +664,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -713,6 +714,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -741,7 +743,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = EB60978BBE7973AAA911998F /* Pods-SwiftNetworkAgent.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = GULEG3228R;
 				INFOPLIST_FILE = SwiftNetworkAgent/Info.plist;
@@ -757,7 +759,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B9C0C2F5FA31D9DDF20557EE /* Pods-SwiftNetworkAgent.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = GULEG3228R;
 				INFOPLIST_FILE = SwiftNetworkAgent/Info.plist;

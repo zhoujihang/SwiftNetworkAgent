@@ -15,4 +15,5 @@ class NetworkUrlTool {
 
     static let pgyUploadURL = "http://www.pgyer.com/apiv1/app/upload"
     
+    static let weatherURL = "http://apis.baidu.com/tianyiweather/basicforecast/weatherapi"
 }
